@@ -1,0 +1,38 @@
+<!-- <div class="card">
+    <div class="flex flex-wrap card-container blue-container">
+        <div *ngFor="let product of products" class="flex align-items-center justify-content-center bg-500 font-bold  m-2 border-round">
+            <div>
+                <img src="{{product.image}}"  style="width:200px;height:200px;">
+                <h1 style="width:200px;height:200px;">{{product.title}}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+ -->
+
+ <div class="grid">
+    <div class="col-12 sm:col-12 md:col-6 lg:col-4 xl:col-3" *ngFor="let product of products">
+        <img src="{{product.image}}"  style="width:200px;height:200px;"><br>
+        <small><b>{{product.title}}</b></small>
+    </div>
+</div>
+<!-- 
+<div class="card">
+    <div class="card-container blue-container overflow-hidden">
+        <div class="flex flex-wrap align-items-center justify-content-center">
+            <div class="bg-left-top bg-no-repeat w-10rem h-10rem bg-blue-500 border-round m-3" style="background-image: url('./assets/images/product-placeholder-blue.svg'); background-size: 5rem;"></div>
+            <div class="bg-top bg-no-repeat w-10rem h-10rem bg-blue-500 border-round m-3" style="background-image: url('./assets/images/product-placeholder-blue.svg'); background-size: 5rem;"></div>
+            <div class="bg-right-top bg-no-repeat w-10rem h-10rem bg-blue-500 border-round m-3" style="background-image: url('./assets/images/product-placeholder-blue.svg'); background-size: 5rem;"></div>
+        </div>
+        <div class="flex flex-wrap align-items-center justify-content-center">
+            <div class="bg-left bg-no-repeat w-10rem h-10rem bg-blue-500 border-round m-3" style="background-image: url('./assets/images/product-placeholder-blue.svg'); background-size: 5rem;"></div>
+            <div class="bg-center bg-no-repeat w-10rem h-10rem bg-blue-500 border-round m-3" style="background-image: url('./assets/images/product-placeholder-blue.svg'); background-size: 5rem;"></div>
+            <div class="bg-right bg-no-repeat w-10rem h-10rem bg-blue-500 border-round m-3" style="background-image: url('./assets/images/product-placeholder-blue.svg'); background-size: 5rem;"></div>
+        </div>
+        <div class="flex flex-wrap align-items-center justify-content-center">
+            <div class="bg-bottom bg-no-repeat w-10rem h-10rem bg-blue-500 border-round m-3" style="background-image: url('./assets/images/product-placeholder-blue.svg'); background-size: 5rem;"></div>
+            <div class="bg-left-bottom bg-no-repeat w-10rem h-10rem bg-blue-500 border-round m-3" style="background-image: url('./assets/images/product-placeholder-blue.svg'); background-size: 5rem;"></div>
+            <div class="bg-right-bottom bg-no-repeat w-10rem h-10rem bg-blue-500 border-round m-3" style="background-image: url('./assets/images/product-placeholder-blue.svg'); background-size: 5rem;"></div>
+        </div>
+    </div>
+</div> -->

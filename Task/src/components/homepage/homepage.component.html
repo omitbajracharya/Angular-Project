@@ -5,7 +5,13 @@
 <div class="grid">
     <div class="col-12 sm:col-12 md:col-6 lg:col-4 xl:col-3" *ngFor="let product of products">
         <img src="{{product.image}}"  class="w-2 h-2"><br>
-        <small><b>{{product.title}}</b></small><br>
+        <small>
+            <b>
+                <span>{{product.title}}</span><br>
+            <span>Rs.{{product.price}}</span>
+            </b>
+        </small><br>
+        
         <button (click)="addToCart(product)" class="add2card surface-900 text-white">Add To Cart</button>
     </div>
 </div>

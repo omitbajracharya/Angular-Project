@@ -21,8 +21,4 @@ getData(){
     console.log(data);
   })
 }
-
-addToCart(addedProduct:any){
-  console.log(addedProduct);
-}
 }

@@ -1,0 +1,18 @@
+<app-header></app-header>
+<div class="bodyAfterHeader">
+    <p-card header="Login To Our" subheader="Flipcart" [style]="{ width: '400px' }" class="sign-cart">
+        <form [formGroup]="flipkart">
+            <label for="email">Email: </label><br>
+            <input pInputText pTooltip="Enter your email" id="email" type="text" formControlName="email" class=" p-2"><br>
+            <small class="text-pink-500" [hidden]="!(email?.hasError('required') && email?.touched)">*Email is required</small>
+            <br>
+            <label for="password">Password: </label><br>
+            <input pInputText pTooltip="Enter your password" id="password" type="password" formControlName="password" class="mt-1 p-2"><br>
+            <small class="text-pink-500" [hidden]="!(password?.hasError('required') && password?.touched)">*Password is required</small>
+            <br>
+            <p-button (onClick)="login()" [disabled]="!flipkart.valid" label="Login" icon="pi pi-check" class="mt-3"></p-button><br>
+            <a routerLink="/sign-in" class="text-success no-underline">Not Yet Register?Sign In</a>
+        </form>
+    </p-card>
+</div>
+<p-toast></p-toast>

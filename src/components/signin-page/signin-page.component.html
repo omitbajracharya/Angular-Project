@@ -1,0 +1,29 @@
+<app-header></app-header>
+<div class="bodyAfterHeader">
+    <p-card header="SignIn" subheader="Flipkart" [style]="{ width: '400px' }" class="sign-cart">
+        <form [formGroup]="flipkart">
+            <label for="first-name">First Name: </label><br>
+            <input id="first-name" pInputText pTooltip="Enter your firstname" type="text" formControlName="firstName" class="p-2">
+            <br>
+            <small class="text-pink-500" [hidden]="!(firstName?.hasError('required') && firstName?.touched)">*Firstname is required</small>
+            <br>
+            <label for="last-name">Last Name: </label><br>
+            <input pInputText pTooltip="Enter your lastname" id="last-name" type="text" formControlName="lastName" class="mt-1 p-2">
+            <br>
+            <small class="text-pink-500" [hidden]="!(lastName?.hasError('required') && lastName?.touched)">*Lastname is required</small>
+            <br>
+            <label for="email">Email: </label><br>
+            <input id="email" pInputText pTooltip="Enter email address" type="text" formControlName="email" class=" p-2">
+            <br>
+            <small class="text-pink-500" [hidden]="!(email?.hasError('required') && email?.touched)">*Email is required</small>
+            <small class="text-pink-500" [hidden]="!(email?.hasError('email') && email?.touched)">* Invalid email address.</small>
+            <br>
+            <label for="password">Password: </label><br>
+            <input id="password" pInputText pTooltip="Enter your password" type="password" formControlName="password" class="mt-1 p-2"><br>
+            <small class="text-pink-500" [hidden]="!(password?.hasError('required') && password?.touched)">*Password is required</small>
+            <br>
+            <p-button (onClick)="registerUser()" [disabled]="!flipkart.valid" label="Register" icon="pi pi-check" class="mt-3"></p-button><br>
+            <a routerLink="/login" class="text-success no-underline">Already Have an account ? Login</a>
+        </form>
+    </p-card>
+</div>

@@ -1,0 +1,16 @@
+<header class="fixed left-0 top-0 bg-teal-500 py-2 flex flex-wrap align-items-center justify-content-between px-0 py-2 w-full z-1">
+    <b><a routerLink="/home/home-page" class="text-0 text-2xl m-2 font-bold no-underline">Flipkart</a></b>
+    <div [hidden]="isHidingSearchBox" class="ml-2">
+        <span class="p-input-icon-left">
+            <i class="pi pi-search ml-2 mr-2" #searchIcon></i>
+            <input type="text" pInputText (input)="onSearchQueryInput($event)" placeholder="          Search"
+                class="p-1" />
+        </span>
+    </div>
+    <a routerLink="/home/cart" [hidden]="isHidingCart" class="bg-teal-500 w-4rem border-transparent text-white
+        m-2">
+        <i class="fas fa-cart-plus text-3xl"></i>
+        <span class="text-lg bg-red-600">{{countInCart}}</span>
+    </a>
+</header>
+

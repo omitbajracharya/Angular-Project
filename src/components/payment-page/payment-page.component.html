@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div class="bodyAfterHeader" >
+    <p-card header="Total={{total}}" subheader="Subtotal={{subTotal}} & VAT=13%"
+        [style]="{ width: '400px' }">
+        <ng-template pTemplate="header">
+            <div>
+                <p-table [value]="addedProductInCard" [tableStyle]="{ 'min-width':
+                    '10rem' }">
+                   
+                    <ng-template pTemplate="body" let-product>
+                        <tr>
+                            <td><img src={{product.image}} class="w-4 h-4"></td>
+                            <td>{{product.title}}</td>
+                            <td>{{product.price}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </ng-template>
+        <h3>Payment:</h3>
+        <p>   
+            <input type="text"  pInputText [(ngModel)]='cardDetail' placeholder="Card Detail" class="mb-2 p-2">
+            <input type="text"  pInputText [(ngModel)]="expiry" placeholder="Expiry" class="p-2">
+        </p>
+        <ng-template pTemplate="footer">
+            <p-button label="Checkout" icon="pi pi-check" (click)="checkout()"></p-button>
+            <p-button label="Cancel" icon="pi pi-times" (click)="cancelCheckout()"
+                styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
+        </ng-template>
+    </p-card>
+</div>
+<p-toast></p-toast>        

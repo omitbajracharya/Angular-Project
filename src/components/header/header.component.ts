@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject, Subscription, debounceTime, distinctUntilChanged } from 'rxjs';
 import { CartService } from 'src/shared/cart.service';
@@ -6,23 +6,31 @@ import { CartService } from 'src/shared/cart.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   @Output() searching = new EventEmitter<string>();
   @ViewChild('searchIcon') searchIcon!: ElementRef;
+  @Input() username:string='';
   public isHidingSearchBox: boolean = false;
   public isHidingCart:boolean = false;
   public countInCart: number = 0;
   private searchSubscription?: Subscription;
   private readonly searchSubject = new Subject<string>();
+  public showLogout:boolean=true;
+  public isLogoutBtnShow:boolean=false;
+  public selectedValue:string=this.username;
 
   constructor(private _cartService: CartService, private route: Router) {
     this._cartService.count.subscribe((count: number) => {
       this.countInCart = count;
     })
 
-    if (['/home/cart','/detail-page','/payment','/sign-in' ,'/login'].includes(this.route.url)) 
+    if(['/sign-in' ,'/login'].includes(this.route.url)) {
+      this.showLogout = false;
+    }
+
+    if (['/home/cart','/home/detail-page','/home/payment','/sign-in' ,'/login'].includes(this.route.url)) 
       this.isHidingSearchBox = true;
     else 
       this.isHidingSearchBox = false;
@@ -31,6 +39,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.isHidingCart=true;
     else
       this.isHidingCart=false;
+  }
+
+
+  /**
+   * Logout from system.
+   */
+  public logout(){
+    localStorage.removeItem("loggedIn");
+    this.route.navigate(['/login']);
   }
 
   /**

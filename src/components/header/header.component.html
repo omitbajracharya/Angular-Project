@@ -1,16 +1,35 @@
-<header class="fixed left-0 top-0 bg-teal-500 py-2 flex flex-wrap align-items-center justify-content-between px-0 py-2 w-full z-1">
-    <b><a routerLink="/home/home-page" class="text-0 text-2xl m-2 font-bold no-underline">Flipkart</a></b>
-    <div [hidden]="isHidingSearchBox" class="ml-2">
+<header class="fixed left-0 top-0 bg-teal-500 py-2 flex flex-wrap align-items-center  px-0 py-2 w-full z-1">
+    <b><a routerLink="/home/home-page" class="text-0 text-2xl m-2 font-bold no-underline" >Flipkart</a></b>
+
+
+
+    
+    <div [hidden]="isHidingSearchBox" class="searchbox">
         <span class="p-input-icon-left">
             <i class="pi pi-search ml-2 mr-2" #searchIcon></i>
-            <input type="text" pInputText (input)="onSearchQueryInput($event)" placeholder="          Search"
-                class="p-1" />
+            <input type="text" pInputText (input)="onSearchQueryInput($event)" placeholder="Search"
+                class="p-1 search-field" />
         </span>
     </div>
-    <a routerLink="/home/cart" [hidden]="isHidingCart" class="bg-teal-500 w-4rem border-transparent text-white
-        m-2">
-        <i class="fas fa-cart-plus text-3xl"></i>
+    <a routerLink="/home/cart" [hidden]="isHidingCart" class="bg-teal-500 absolute w-4rem border-transparent text-white
+      " style="right:4%;">
+        <i class="fas fa-cart-plus text-3xl ml-2"></i>
         <span class="text-lg bg-red-600">{{countInCart}}</span>
     </a>
+    
+        <div style="position:absolute; right:1%"  *ngIf="showLogout">
+            <div class="dropdown">
+              <a class="dropbtn" >
+                <i class=  "fa fa-cog" style="font-size: 20px;">
+                </i><i class="ion-arrow-down-b"></i>
+              </a>
+              <div class="dropdown-content" style="min-width: 136px !important;right: -17px;">
+                <a title="log out" class="signout" (click)="logout()" style="cursor:pointer;padding-left: 10px;">
+                  <i class="fa fa-power-off" aria-hidden="true"></i><span>Sign Out</span>
+                </a>
+              </div>
+            </div>
+          </div>
+    
 </header>
 

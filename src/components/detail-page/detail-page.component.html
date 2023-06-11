@@ -1,5 +1,6 @@
 <app-header></app-header>
-<div class="justify-content-between ml-2 bodyAfterHeader">
+<div class="justify-content-between text-center bodyAfterHeader w-full">
+  <div class="inline-block">
     <p-card header="{{product.title}} - (Rs.{{product.price}})" subheader="Category {{product.id}} : {{product.category}} - {{product.rating['rate']}} Rating in {{product.rating['count']}} Count" [style]="{ width: '500px'}">
         <ng-template pTemplate="header">
           <div>
@@ -11,5 +12,6 @@
             <p-button label="Add To Cart" (click)="addToCart(product)" styleClass="surface-900 p-button-outlined p-button-info w-12rem h-2rem "></p-button>   
         </div>
     </p-card>
+  </div>
 </div>
 <p-toast></p-toast>

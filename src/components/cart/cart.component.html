@@ -1,14 +1,13 @@
 <app-header></app-header>
 <p-toast></p-toast>          
 <div class="bodyAfterHeader mb-2">
-    <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }" >
+    <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template pTemplate="header">
             <tr>
                 <th>Id</th>
                 <th>Image</th>
                 <th>Category</th>
                 <th>Title</th>
-                <th>Description</th>
                 <th>Rating</th>
                 <th>Price</th>
                 <th>Action</th>
@@ -17,10 +16,9 @@
         <ng-template pTemplate="body" let-product>
             <tr>
                 <td>{{ product.id }}</td>
-                <td><img src="{{ product.image }}" class="w-5 h-5"></td>
+                <td><img src="{{ product.image }}" class="w-3 h-3"></td>
                 <td>{{ product.category }}</td>
                 <td>{{ product.title }}</td>
-                <td>{{ product.description }}</td>
                 <td>{{ product.rating.rate }}</td>
                 <td>{{ product.price }}</td>
                 <td>

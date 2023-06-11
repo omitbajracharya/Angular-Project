@@ -2,22 +2,22 @@
 <div class="grid bodyAfterHeader">
     <div class="col-12 sm:col-12 md:col-6 lg:col-4 xl:col-3" *ngFor="let
         product of productList;">
-        <div class="w-15rem h-16rem border-1 ">
-            <img src="{{product.image}}" class="ml-6 mt-2 w-8rem h-8rem"><br>
+        <div class="w-15rem h-16rem border-1 text-center ">
+            <img src="{{product.image}}" class="mt-2 w-8rem h-8rem"><br>
             <small>
                 <b>
-                    <span class="ml-8">Rs.{{product.price}}</span>
+                    <span>Rs.{{product.price}}</span><br>
                     <button (click)="redirectToDetailPage(product)"
-                        class="no-underline max-w-14rem ml-2 surface-overlay
+                        class="no-underline max-w-14rem surface-overlay
                         border-round mt-3 white-space-nowrap overflow-hidden
-                        text-overflow-ellipsis border-blue-500">
+                        text-overflow-ellipsis border-blue-500 cursor-pointer" >
                         {{product.title}}
                     </button><br>
                 </b>
             </small><br>
             <p-button label="Add To Cart" (click)="addToCart(product)"
-                styleClass="surface-900 p-button-outlined p-button-info w-10rem
-                h-1rem ml-4 "></p-button>
+                styleClass="surface-900 p-button-outlined p-button-info w-12rem
+                h-1rem  "></p-button>
         </div>
     </div>
 </div>
